@@ -2,10 +2,38 @@ this is a strict template/boilerplate. therefore, every developer on team kind o
 differences in development methods and coding styles between people on team.
 
 ---
-(1) we're going to do is we're going to define the fact that this project is designed to run on **yarn**
+
+### (1) Engine Locking
+
+we're going to define the fact that this project is designed to run on **yarn**
+
 ```bash
-.nvmrc
-.npmrc
+.nvmrc: lts/iron
+.npmrc: engine-strict=true
+package.json: "engines": {
+    "node": ">=20.11.0",
+    "yarn": ">=1.22.19",
+    "npm": "please-use-yarn"
+  },
+```
+
+### (2) Git Setup
+
+```bash
+incomplete
+```
+
+### (3) Code Formatting and Quality Tools
+
+```bash
+eslint - For best practices on coding standards
+prettier - For automatic formatting of code files
+```
+### (4) Git Hooks
+```bash
+yarn add -D husky
+npx husky install
+npx husky add .husky/pre-commit "yarn lint"
 ```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -42,7 +70,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 
 yarn -v
 1.22.19
