@@ -1,3 +1,13 @@
+this is a strict template/boilerplate. therefore, every developer on team kind of follows the same rules. don't have to worry as little as possible about
+differences in development methods and coding styles between people on team.
+
+---
+(1) we're going to do is we're going to define the fact that this project is designed to run on **yarn**
+```bash
+.nvmrc
+.npmrc
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -5,13 +15,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
+yarn install
+# then, test the project
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# then, build the process once
+yarn build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -34,3 +42,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+yarn -v
+1.22.19
+
+node -v
+v20.11.0 (Iron)
+
+npx next --version
+Next.js v14.2.3
+
+npm -v
+9.6.6
