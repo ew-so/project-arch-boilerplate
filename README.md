@@ -27,14 +27,118 @@ incomplete
 
 ```bash
 eslint - For best practices on coding standards
+"lint": "next lint",
+{
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": [
+      1,
+      { "args": "after-used", "argsIgnorePattern": "^_" }
+      // "no-unused-vars": 0, // As example: Will never bug you about unused variables again
+    ]
+  }
+}
+
 prettier - For automatic formatting of code files
+"prettier": "prettier --write .",
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true
+}
 ```
+
 ### (4) Git Hooks
+
 ```bash
 yarn add -D husky
-npx husky install
-npx husky add .husky/pre-commit "yarn lint"
+npx husky init
+echo "yarn lint && yarn prettier" > .husky/pre-commit
+echo "yarn build" > .husky/pre-commit
+{
+  "scripts": {
+-   "prepare": "husky install"
++   "prepare": "husky"
+  }
+}
 ```
+
+### (5) Git commit lint
+
+standard convention for all our commit messages so far, let's ensure that everyone on the team is following them as well (including ourselves!)
+
+To configure it we will be using a set of standard defaults, but I like to include that list explicitly in a commitlint.config.js file since I sometimes forget what prefixes are available:
+
+```bash
+yarn add -D @commitlint/config-conventional @commitlint/cli
+commitlint.config.js
+echo 'npx --no-install commitlint --edit $1' > .husky/commit-msg
+```
+
+### (6) VS Code Configuration
+
+```bash
+.vscode/settings.json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  }
+}
+```
+
+### (7) VS Code Debugging
+
+```bash
+.vscode/launch.json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  }
+}
+```
+
+### (8) Directory Structure
+
+```bash
+.vscode/launch.json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  }
+}
+```
+
+### (9) Storybook
+
+storybook it is a kind of an all-in-one component demo suite, we can build
+components and show them and test them in storybook so completely isolated from our application
+
+that's really the key thing here so if you're working on a card if you're working on a date picker if you're working on a even just like a layout element something that like a wrapper for a form or something like that you can create those components in react here but rather than having to build and load
+
+you build them in isolation using what's called stories which are
+descriptions of props and state for how to render different versions of that component and storybook as a tool will display them with those
+props and state and also let you change things like you know the break the mobile break points test responsiveness change the props uh dynamically with a little ui and controls and buttons to to
+see what they look like in different states
+
+```bash
+npx storybook@latest init
+
+```
+
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
